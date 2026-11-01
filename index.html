@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6f0" />
+    <meta name="description" content="Organize suas receitas culinárias com o ReceitaFlow." />
+    <title>ReceitaFlow — suas receitas organizadas</title>
+    <link rel="stylesheet" href="./css/taskflow.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="cabecalho">
+        <div class="marca" aria-hidden="true">RF</div>
+        <div>
+          <p class="sobretitulo">SEU CADERNO DIGITAL</p>
+          <h1 class="cabecalho__titulo"><span id="nome-do-sistema">ReceitaFlow</span></h1>
+          <p class="cabecalho__subtitulo"><span id="versao">v0.2.0</span> · <span id="data-de-hoje">—</span></p>
+        </div>
+      </header>
+
+      <section class="introducao">
+        <div>
+          <p class="sobretitulo">COZINHE ALGO BOM</p>
+          <h2>Suas receitas, em um só lugar.</h2>
+          <p>Cadastre pratos, organize por dificuldade e acompanhe o que ainda está em rascunho.</p>
+        </div>
+        <div class="ilustracao" aria-hidden="true">🍲</div>
+      </section>
+
+      <section class="painel" aria-label="Resumo das receitas">
+        <article class="estatistica">
+          <span class="estatistica__rotulo">Total de receitas</span>
+          <strong class="estatistica__numero" id="total">0</strong>
+        </article>
+        <article class="estatistica estatistica--destaque">
+          <span class="estatistica__rotulo">Em rascunho</span>
+          <strong class="estatistica__numero" id="pendentes">0</strong>
+        </article>
+      </section>
+
+      <p class="aviso" id="comece-por" hidden></p>
+
+      <section class="secao">
+        <div class="secao__cabecalho">
+          <div>
+            <p class="sobretitulo">ADICIONE AO SEU CADERNO</p>
+            <h2>Nova receita</h2>
+          </div>
+        </div>
+        <form class="formulario" id="formulario">
+          <div class="campo campo--principal">
+            <label class="campo__rotulo" for="nome">Nome da receita</label>
+            <input class="campo__entrada" id="nome" name="nome" type="text" autocomplete="off" placeholder="Ex.: Bolo de cenoura" required />
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="dificuldade">Dificuldade</label>
+            <select class="campo__selecao" id="dificuldade" name="dificuldade">
+              <option value="facil">Fácil</option>
+              <option value="media" selected>Média</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </div>
+          <button class="botao botao--primario" type="submit">+ Cadastrar receita</button>
+        </form>
+        <p class="campo__erro" id="erro" role="alert" aria-live="polite"></p>
+      </section>
+
+      <section class="secao">
+        <div class="secao__cabecalho">
+          <div>
+            <p class="sobretitulo">SELEÇÃO DA CASA</p>
+            <h2>Suas receitas</h2>
+          </div>
+          <span class="contador"><span id="total-lista">6</span> receitas iniciais</span>
+        </div>
+        <ul class="lista" id="lista" aria-live="polite"></ul>
+        <p class="rodape-nota">Os novos cadastros ficam na memória desta página. A integração com MySQL será feita na etapa de API.</p>
+      </section>
+      <footer class="rodape">ReceitaFlow <span>·</span> feito para organizar boas ideias à mesa</footer>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
